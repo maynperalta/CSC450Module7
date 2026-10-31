@@ -1,15 +1,18 @@
-//============================================================================
-// Name        : CSC450Module7.cpp
-// Author      : MP
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
-
 #include <iostream>
-using namespace std;
+#include <thread>
+
+void countUp() {
+	std::cout << "Thread 1: Counting up... " << std::endl;
+	
+	for (int i = 1; i <= 20; i++) {
+		std::cout << "Count up: " << i << std::endl;
+	}
+	
+	std::cout << "Thread 1: Counting complete." << std::endl;
+}
 
 int main() {
-	cout << "!!!Hello Worlds, one and all!!!" << endl; // prints !!!Hello World!!!
+	std::cout << "Starting program." << std::endl;
+	std::thread threadOne(countUp);
 	return 0;
 }
